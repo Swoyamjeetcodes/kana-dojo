@@ -2,17 +2,12 @@ import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import bundleAnalyzer from '@next/bundle-analyzer';
 
-const isDev = process.env.NODE_ENV !== 'production';
-
-// Only use next-intl plugin in production for optimization
-// In dev, skip the plugin to reduce compilation time
-const withNextIntl = isDev
-  ? (config: NextConfig) => config
-  : createNextIntlPlugin('./core/i18n/request.ts');
-
+const withNextIntl = createNextIntlPlugin('./core/i18n/request.ts');
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true'
 });
+
+const isDev = process.env.NODE_ENV !== 'production';
 
 const nextConfig: NextConfig = {
   // Performance optimizations

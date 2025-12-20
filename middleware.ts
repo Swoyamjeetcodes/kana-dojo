@@ -1,16 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { routing } from './core/i18n/routing';
 
-// IMPORTANT: Middleware MUST always run, even in dev mode
-// With localePrefix: 'never', it performs internal URL rewriting:
-//   User sees: /
-//   Internally rewrites to: /en (default locale)
-//   Matches route: app/[locale]/page.tsx
-// Without this rewriting, all routes result in 404 errors
 const intlMiddleware = createMiddleware(routing);
 
 export default function middleware(request: NextRequest) {
+  // Always run i18n middleware - even with one locale, it's needed for routing
+  // With localePrefix: 'never', the middleware handles internal rewriting
   return intlMiddleware(request);
 }
 
