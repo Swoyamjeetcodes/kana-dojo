@@ -1202,6 +1202,10 @@ const baseThemeSets: BaseThemeGroup[] = [
         secondaryColor: 'oklch(65.0% 0.180 30.0 / 1)'
       },
       {
+        id: 'konbini-light',
+        backgroundColor: 'oklch(96.0% 0.015 210.0 / 1)',
+        mainColor: 'oklch(55.0% 0.185 200.0 / 1)',
+        secondaryColor: 'oklch(60.0% 0.155 25.0 / 1)'},{
         id: 'pachinko-hall',
         backgroundColor: 'oklch(18.0% 0.042 325.0 / 1)',
         mainColor: 'oklch(90.0% 0.115 95.0 / 1)',
